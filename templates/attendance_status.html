@@ -1,0 +1,13 @@
+<html>
+<title>Attendance Status</title>
+<a href="/home">Home</a><br>
+
+<table border="1" cellpadding="9">
+<tr><th>Subject</th> <th>Classes Attended</th> <th>Total Classes Conducted</th> <th>Attendance(%)</th> <th>Details</th></tr>
+{% for sub_dict in full_list %}
+	{% if sub_dict.subject!='' %}
+	<tr><td>{{ sub_dict.subject }}</td> <td>{{ sub_dict.classes_present }}</td> <td>{{ sub_dict.total_classes }}</td> <td style="color:{{ sub_dict.colour }}">{{ sub_dict.attendance }}</td><td><a href="{{ sub_dict.this_link }}">Click here!</a></td></tr>
+	{% endif %}
+{% endfor %}
+</table>
+</html>

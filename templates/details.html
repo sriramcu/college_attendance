@@ -1,0 +1,11 @@
+<html>
+<title>Details for {{ sub }}</title>
+<a href="/home">Home</a><br>
+<p>
+<pre>
+{% autoescape false %}    
+{{ final_str }}
+{% endautoescape %}
+</pre>
+</p>
+</html>

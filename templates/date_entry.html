@@ -1,0 +1,9 @@
+<html>
+<title>Date Entry</title>
+<a href="/home">Home</a><br>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {{ form.date_str.label }}   {{ form.date_str(size=32) }} <br><br>
+    {{ form.submit() }}    
+</form>
+</html>

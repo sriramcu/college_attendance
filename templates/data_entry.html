@@ -1,0 +1,16 @@
+<html>
+<title>Data Entry</title>
+<a href="/home">Home</a><br>
+<p> Click <a href="/date_entry">here</a> to change the date.</p><br>
+<p>{{ day_name }}, {{ date_str }}</p><hr>
+<p><pre>Subject                             Status</pre></p><br>   
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    {% for (a,b) in attr_tup_list %}
+        <pre>{{ form[a].label }} {{ form[a] }}           {{ form[b] }}</pre><br>
+    {% endfor %}  
+    <pre>{{ form.comments.label }}    {{ form.comments(size=32) }}</pre>
+    {{ form.submit() }}
+</pre>    
+</form>
+</html>
