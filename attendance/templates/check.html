@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Current Attendance</h3>
+<table>
+<tr>
+    <th>Subject</th>
+    <th>Number of classes present</th>
+    <th>Number of classes absent</th>
+    <th>Total number of classes conducted</th>
+    <th>Attendance</th>
+
+</tr>
+
+{% for class,present,absent,total,att in data %}
+<tr>
+<td>{{ class }}</td>
+<td>{{ present }}</td>
+<td>{{ absent }}</td>
+<td>{{ total }}</td>
+<td><p style={% if att < 75.0 %}"color:red" {% else %}"color:black"{% endif %}> {{ att }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock content %}
