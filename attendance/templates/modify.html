@@ -10,7 +10,7 @@
 {% if classes %}
 <b>{{ dayname }}, {{ date_day }}-{{ date_month }}-{{ date_year }}</b> 
 <br>
-<b>Warning- The default values shown below do not reflect the actual values already entered, if any. Refer to the excel sheet or the admin page to see the attendance already entered.</b><br>
+<b>Warning- The default values shown below do not reflect the actual values already entered, if any. Refer to the excel sheet or the admin page or the detailed daywise page to see the attendance already entered.</b><br>
 <form method="post">
 {% csrf_token %}
     <p>1.  <select name="class1">{% for class in classes %}<option value="{{ class }}" {% if default.1 == class %} selected {% endif %}>{{ class }}</option>{% endfor %}</select>&emsp;<select name="status1"><option value="n" selected>Not Scheduled</option><option value="p">Present</option><option value="a">Absent</option></select></p>

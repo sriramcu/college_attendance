@@ -12,6 +12,10 @@ import datetime
 
 import numpy as np
 
+import pandas
+
+import os
+
 @register.filter
 def get_item(dictionary, key):
     return dictionary.get(key)
@@ -80,7 +84,7 @@ def check(request):
         if total[-1] == 0:
             att.append(0)
         else:
-            att.append(round((num_present)/(num_present+num_absent),2))
+            att.append(round((num_present)/(num_present+num_absent),4)*100)
     
     data = zip(classes,present,absent,total,att)
     return render(request, 'check.html',{'data':data})
@@ -100,6 +104,19 @@ def change_tt(request):
     
    
     return render(request, 'change_tt.html',{'dict':tt_dict,'num_classes_list':num_classes_list,'days':days})
+
+def detailed(request):
+    os.system("sqlite3 -header -csv db.sqlite3 'select * from Attendance;' > out.csv")
+    pr = pandas.read_csv('out.csv')
+    s = str(pandas.DataFrame.to_html(pr))
+    f = open("attendance/templates/dump.html",'w')
+    f.write('{% extends "base.html" %}\n{% block content %}')
+    f.write(s)
+    f.write('\n{% endblock content %}\n')
+    f.close()
+    return render(request,"dump.html",{})
+    
+    
     
 def base(request):
     return render(request, 'base.html')
