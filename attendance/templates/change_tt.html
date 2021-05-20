@@ -9,96 +9,107 @@
 {% endfor %}
 </tr>
 
+<form method="post">
+{% csrf_token %}
+
 <tr>
     
 <td>Mon</td>
-<td>{{ dict.Mon.1 }}</td>
-<td>{{ dict.Mon.2 }}</td>
-<td>{{ dict.Mon.3 }}</td>
-<td>{{ dict.Mon.4 }}</td>
-<td>{{ dict.Mon.5 }}</td>
-<td>{{ dict.Mon.6 }}</td>
+<td> <select id="Mon1" name="Mon1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Mon.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Mon2" name="Mon2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Mon.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Mon3" name="Mon3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Mon.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Mon4" name="Mon4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Mon.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Mon5" name="Mon5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Mon.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Mon6" name="Mon6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Mon.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
-
 
 <tr>
     
 <td>Tue</td>
-<td>{{ dict.Tue.1 }}</td>
-<td>{{ dict.Tue.2 }}</td>
-<td>{{ dict.Tue.3 }}</td>
-<td>{{ dict.Tue.4 }}</td>
-<td>{{ dict.Tue.5 }}</td>
-<td>{{ dict.Tue.6 }}</td>
+<td> <select id="Tue1" name="Tue1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Tue.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Tue2" name="Tue2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Tue.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Tue3" name="Tue3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Tue.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Tue4" name="Tue4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Tue.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Tue5" name="Tue5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Tue.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Tue6" name="Tue6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Tue.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
 
 <tr>
     
 <td>Wed</td>
-<td>{{ dict.Wed.1 }}</td>
-<td>{{ dict.Wed.2 }}</td>
-<td>{{ dict.Wed.3 }}</td>
-<td>{{ dict.Wed.4 }}</td>
-<td>{{ dict.Wed.5 }}</td>
-<td>{{ dict.Wed.6 }}</td>
+<td> <select id="Wed1" name="Wed1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Wed.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Wed2" name="Wed2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Wed.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Wed3" name="Wed3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Wed.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Wed4" name="Wed4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Wed.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Wed5" name="Wed5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Wed.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Wed6" name="Wed6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Wed.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
 
 <tr>
     
 <td>Thu</td>
-<td>{{ dict.Thu.1 }}</td>
-<td>{{ dict.Thu.2 }}</td>
-<td>{{ dict.Thu.3 }}</td>
-<td>{{ dict.Thu.4 }}</td>
-<td>{{ dict.Thu.5 }}</td>
-<td>{{ dict.Thu.6 }}</td>
+<td> <select id="Thu1" name="Thu1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Thu.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Thu2" name="Thu2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Thu.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Thu3" name="Thu3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Thu.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Thu4" name="Thu4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Thu.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Thu5" name="Thu5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Thu.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Thu6" name="Thu6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Thu.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
 
 <tr>
     
 <td>Fri</td>
-<td>{{ dict.Fri.1 }}</td>
-<td>{{ dict.Fri.2 }}</td>
-<td>{{ dict.Fri.3 }}</td>
-<td>{{ dict.Fri.4 }}</td>
-<td>{{ dict.Fri.5 }}</td>
-<td>{{ dict.Fri.6 }}</td>
+<td> <select id="Fri1" name="Fri1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Fri.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Fri2" name="Fri2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Fri.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Fri3" name="Fri3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Fri.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Fri4" name="Fri4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Fri.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Fri5" name="Fri5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Fri.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Fri6" name="Fri6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Fri.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
 
 <tr>
     
 <td>Sat</td>
-<td>{{ dict.Sat.1 }}</td>
-<td>{{ dict.Sat.2 }}</td>
-<td>{{ dict.Sat.3 }}</td>
-<td>{{ dict.Sat.4 }}</td>
-<td>{{ dict.Sat.5 }}</td>
-<td>{{ dict.Sat.6 }}</td>
+<td> <select id="Sat1" name="Sat1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sat.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sat2" name="Sat2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sat.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sat3" name="Sat3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sat.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sat4" name="Sat4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sat.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sat5" name="Sat5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sat.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sat6" name="Sat6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sat.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
+
 
 <tr>
     
 <td>Sun</td>
-<td>{{ dict.Sun.1 }}</td>
-<td>{{ dict.Sun.2 }}</td>
-<td>{{ dict.Sun.3 }}</td>
-<td>{{ dict.Sun.4 }}</td>
-<td>{{ dict.Sun.5 }}</td>
-<td>{{ dict.Sun.6 }}</td>
+<td> <select id="Sun1" name="Sun1">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sun.1 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sun2" name="Sun2">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sun.2 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sun3" name="Sun3">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sun.3 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sun4" name="Sun4">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sun.4 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sun5" name="Sun5">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sun.5 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+<td> <select id="Sun6" name="Sun6">{% for class in classes %}<option value="{{ class }}" {% ifequal class dict.Sun.6 %}selected{% endifequal %}>{{ class }}</option>{% endfor %}</select></td>
+
 
 </tr>
-
-<tr>
-    
 
 
 </table>
 
-<b>Changing time table functionality not available for now, will be added in future. For now, go to the admin site to change the time table.</b>
+
+<input type="submit" value="Submit" name="submit">
+</form>
+
+<b>Changing, deleting or adding courses or subjects functionality not available for now, will be added in future. For now, go to the admin site to do this.</b>
 {% endblock content %}

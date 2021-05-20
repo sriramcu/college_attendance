@@ -22,9 +22,10 @@ def get_item(dictionary, key):
 
 
 def modify(request):
-    form1 = DateForm()
+    
 
     if request.method == 'POST' and 'submit' in request.POST:
+        form1 = DateForm()
         # ~ <QueryDict: {'csrfmiddlewaretoken': ['6gpAXwpCAz3LWw6Z0xuvIwyIAzmK5zKvq7W3buYqn4G5s9u2CaVTPITd1VpBLqk5'], 'class1': ['Physics'], 'status1': ['n'], 'class2': [''], 'status2': ['n'], 'class3': [''], 'status3': ['a'], 'class4': [''], 'status4': ['n'], 'class5': [''], 'status5': ['n'], 'class6': [''], 'status6': ['n'], 'submit': ['Submit']}>
         this_day = request.session['this_day']
         dt_obj = datetime.datetime.strptime(this_day, '%d-%m-%Y')
@@ -41,7 +42,7 @@ def modify(request):
         return render(request, 'modify.html',{'form1':form1})
 
     elif request.method == 'POST':
-       
+        form1 = DateForm()
         #default = {1:'a',2:'c',3:'',4:'b',5:'',6:'a'}
         #'date_month': ['3'], 'date_day': ['10'], 'date_year': ['2021']
         this_day = request.POST['date_day'].zfill(2)+'-'+request.POST['date_month'].zfill(2)+"-"+request.POST['date_year']
@@ -50,7 +51,7 @@ def modify(request):
         today = dt_obj.strftime('%a')
         full_dayname = dt_obj.strftime('%A')
         default = {}
-        for i in range(6):
+        for i in range(1,7,1):
             tt_obj = Timetable.objects.filter(day=today,class_num=i).first()
             if tt_obj:
                 default[i] = tt_obj.subject_name
@@ -65,12 +66,25 @@ def modify(request):
         return render(request, 'modify.html',{'form1':form1,'classes':classes,'default':default,'dayname':full_dayname,'date_day':date_day,'date_month':date_month,'date_year':date_year})
         
     
-       
+    date_obj= Attendance.objects.order_by('-date').first()
+    if date_obj:
+        date_obj = date_obj.date
+        if date_obj.strftime("%A") == "Friday":
+            n = 3
+        else:
+            n = 1
+        date_obj = date_obj + datetime.timedelta(days = n) 
+        date_str = date_obj.strftime("%Y-%m-%d")
+    else:
+        date_str = datetime.datetime.now().strftime("%Y-%m-%d")
     
+    print(date_str)
+    form1 = DateForm(initial = {'date':date_str})
     return render(request, 'modify.html',{'form1':form1})
     
 def check(request):
     classes = list(Timetable.objects.order_by().values_list('subject_name',flat=True).distinct())
+  
     present = []
     absent = []
     total = []
@@ -89,7 +103,7 @@ def check(request):
     data = zip(classes,present,absent,total,att)
     return render(request, 'check.html',{'data':data})
     
-def change_tt(request):
+def view_tt(request):
     num_classes = 6
     num_classes_list = [(x+1) for x in range(num_classes)]
     tt_dict = {}
@@ -103,7 +117,40 @@ def change_tt(request):
             
     
    
-    return render(request, 'change_tt.html',{'dict':tt_dict,'num_classes_list':num_classes_list,'days':days})
+    return render(request, 'view_tt.html',{'dict':tt_dict,'num_classes_list':num_classes_list,'days':days})
+    
+def change_tt(request):
+    days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+    num_classes = 6
+    
+    
+    if request.method == 'POST':
+        
+        for day in days:
+            for class_num in range(1,num_classes+1):
+                class_name = request.POST[day+str(class_num)]
+                Timetable.objects.update_or_create(day = day, class_num = class_num, defaults = {'subject_name':class_name})
+        
+        messages.success(request,"Time table updated successfully!!")
+        
+    
+    
+    
+    classes = list(Timetable.objects.order_by().values_list('subject_name',flat=True).distinct())
+    classes.insert(0,'')
+    
+    num_classes_list = [(x+1) for x in range(num_classes)]
+    tt_dict = {}
+    
+    for day in days:
+        tt_dict[day] = {}
+        day_tt = Timetable.objects.filter(day = day)
+        if day_tt is not None:
+            for cl in day_tt:
+                tt_dict[cl.day][cl.class_num] = cl.subject_name
+    
+    
+    return render(request, 'change_tt.html',{'dict':tt_dict,'classes':classes,'num_classes_list':num_classes_list})
 
 def detailed(request):
     os.system("sqlite3 -header -csv db.sqlite3 'select * from Attendance;' > out.csv")

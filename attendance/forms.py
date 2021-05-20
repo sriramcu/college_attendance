@@ -6,6 +6,6 @@ import datetime
 #widgets = {'date': DatePickerInput(format='%d/%m/%Y')}
 
 class DateForm(forms.Form):
-    date = forms.DateField(widget = forms.SelectDateWidget,initial=datetime.date.today)
+    date = forms.DateField(widget = forms.SelectDateWidget)
  
     

@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+<h3>Time Table</h3>
+<table>
+<tr>
+<th>Day</th>
+{% for i in num_classes_list %}
+<th>Class {{ i }}</th>
+{% endfor %}
+</tr>
+
+<tr>
+    
+<td>Mon</td>
+<td>{{ dict.Mon.1 }}</td>
+<td>{{ dict.Mon.2 }}</td>
+<td>{{ dict.Mon.3 }}</td>
+<td>{{ dict.Mon.4 }}</td>
+<td>{{ dict.Mon.5 }}</td>
+<td>{{ dict.Mon.6 }}</td>
+
+</tr>
+
+
+<tr>
+    
+<td>Tue</td>
+<td>{{ dict.Tue.1 }}</td>
+<td>{{ dict.Tue.2 }}</td>
+<td>{{ dict.Tue.3 }}</td>
+<td>{{ dict.Tue.4 }}</td>
+<td>{{ dict.Tue.5 }}</td>
+<td>{{ dict.Tue.6 }}</td>
+
+</tr>
+
+<tr>
+    
+<td>Wed</td>
+<td>{{ dict.Wed.1 }}</td>
+<td>{{ dict.Wed.2 }}</td>
+<td>{{ dict.Wed.3 }}</td>
+<td>{{ dict.Wed.4 }}</td>
+<td>{{ dict.Wed.5 }}</td>
+<td>{{ dict.Wed.6 }}</td>
+
+</tr>
+
+<tr>
+    
+<td>Thu</td>
+<td>{{ dict.Thu.1 }}</td>
+<td>{{ dict.Thu.2 }}</td>
+<td>{{ dict.Thu.3 }}</td>
+<td>{{ dict.Thu.4 }}</td>
+<td>{{ dict.Thu.5 }}</td>
+<td>{{ dict.Thu.6 }}</td>
+
+</tr>
+
+<tr>
+    
+<td>Fri</td>
+<td>{{ dict.Fri.1 }}</td>
+<td>{{ dict.Fri.2 }}</td>
+<td>{{ dict.Fri.3 }}</td>
+<td>{{ dict.Fri.4 }}</td>
+<td>{{ dict.Fri.5 }}</td>
+<td>{{ dict.Fri.6 }}</td>
+
+</tr>
+
+<tr>
+    
+<td>Sat</td>
+<td>{{ dict.Sat.1 }}</td>
+<td>{{ dict.Sat.2 }}</td>
+<td>{{ dict.Sat.3 }}</td>
+<td>{{ dict.Sat.4 }}</td>
+<td>{{ dict.Sat.5 }}</td>
+<td>{{ dict.Sat.6 }}</td>
+
+</tr>
+
+<tr>
+    
+<td>Sun</td>
+<td>{{ dict.Sun.1 }}</td>
+<td>{{ dict.Sun.2 }}</td>
+<td>{{ dict.Sun.3 }}</td>
+<td>{{ dict.Sun.4 }}</td>
+<td>{{ dict.Sun.5 }}</td>
+<td>{{ dict.Sun.6 }}</td>
+
+</tr>
+
+<tr>
+    
+
+
+</table>
+
+
+{% endblock content %}
