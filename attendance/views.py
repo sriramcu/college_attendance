@@ -56,7 +56,7 @@ def modify(request):
             if tt_obj:
                 default[i] = tt_obj.subject_name
       
-        classes = list(Timetable.objects.order_by().values_list('subject_name',flat=True).distinct())
+        classes = list(Attendance.objects.order_by().values_list('subject_name',flat=True).distinct())
         classes.insert(0,'')
 
         request.session['this_day'] = this_day
@@ -83,7 +83,7 @@ def modify(request):
     return render(request, 'modify.html',{'form1':form1})
     
 def check(request):
-    classes = list(Timetable.objects.order_by().values_list('subject_name',flat=True).distinct())
+    classes = list(Attendance.objects.order_by().values_list('subject_name',flat=True).distinct())
   
     present = []
     absent = []
@@ -136,7 +136,7 @@ def change_tt(request):
     
     
     
-    classes = list(Timetable.objects.order_by().values_list('subject_name',flat=True).distinct())
+    classes = list(Attendance.objects.order_by().values_list('subject_name',flat=True).distinct())
     classes.insert(0,'')
     
     num_classes_list = [(x+1) for x in range(num_classes)]
@@ -164,6 +164,23 @@ def detailed(request):
     return render(request,"dump.html",{})
     
     
+def add_courses(request):
+    if request.method == 'POST':
+        att = Attendance.objects.filter(date=datetime.date(1995,1,1)).first()
+        if att == None:
+            my_num = 1
+        
+        else:
+            my_num = int(Attendance.objects.filter(date=datetime.date(1995,1,1)).order_by('-class_num').first().class_num)+1
+        
+        Attendance.objects.create(date=datetime.date(1995,1,1),class_num=my_num,subject_name=request.POST['course'],status='n')
+        messages.success(request,"Course successfully added")
+        
+    classes = list(Attendance.objects.order_by().values_list('subject_name',flat=True).distinct())
+    
+    return render(request,"add_courses.html",{"classes":classes})
+    
+# delete from Attendance where date='1995-01-01'; to undo the above add courses
     
 def base(request):
     return render(request, 'base.html')

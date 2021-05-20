@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+The courses currently in the database are:
+{% for class in classes %}
+{{ class }} , 
+
+{% endfor %}
+<br><br><br>
+<form method="post">
+{% csrf_token %}
+<label for="course">Add Course: </label><input type="text" id="course" name="course"> <br> <br>
+<input type="submit" name="submit" value="Submit"> <br>
+</form>
+{% endblock content %}
