@@ -8,6 +8,7 @@ Django web app to enter and monitor college attendance.
 2. Install requirements:  
 `pip install -r requirements.txt`
 3. Set up the database by running the following commands:  
+  
 `py manage.py makemigrations`  
 
 `py manage.py migrate`
