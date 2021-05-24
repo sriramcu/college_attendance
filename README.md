@@ -31,4 +31,4 @@ Django web app to enter and monitor college attendance.
 
 10. To check daywise attendance as entered in database, hit 'View detailed daywise attendance'.
 
-11. **Please note that there is no way to remove courses already entered in step 4 via the app. To do this, either delete the file db.sqlite3 generated in step 3 present in the root directory of this repo and start adding courses from scratch- this would delete ALL of your entered attendance data; or via the admin site.**
+11. **Please note that there is no way to remove courses already entered in step 5 via the app. To do this, either delete the file db.sqlite3 generated in step 3 present in the root directory of this repo and start adding courses from scratch- this would delete ALL of your entered attendance data; or via the admin site.**
