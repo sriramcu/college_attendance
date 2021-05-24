@@ -2,3 +2,4 @@ college_attendance/settings.py
 db.sqlite3
 out.csv
 dump.html
+attendance/templates/dump.html
