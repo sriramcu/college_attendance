@@ -22,10 +22,31 @@ def get_item(dictionary, key):
 
 
 def modify(request):
+    date_obj= Attendance.objects.order_by('-date').first()
+    if date_obj:
+        date_obj = date_obj.date
+        if date_obj.strftime("%A") == "Friday" and request.method!='POST':
+            n = 3
+        elif date_obj.strftime("%A") == "Thursday" and request.method=='POST' and 'submit' in request.POST:
+            n=4
+        else:
+            if request.method == 'POST' and 'submit' in request.POST:
+                n = 2
+            else:
+                n = 1
+            
+        
+            
+        date_obj = date_obj + datetime.timedelta(days = n) 
+        date_str = date_obj.strftime("%Y-%m-%d")
+    else:
+        date_str = datetime.datetime.now().strftime("%Y-%m-%d")
     
+    print(date_str)
+    form1 = DateForm(initial = {'date':date_str})
 
     if request.method == 'POST' and 'submit' in request.POST:
-        form1 = DateForm()
+        #form1 = DateForm()
         # ~ <QueryDict: {'csrfmiddlewaretoken': ['6gpAXwpCAz3LWw6Z0xuvIwyIAzmK5zKvq7W3buYqn4G5s9u2CaVTPITd1VpBLqk5'], 'class1': ['Physics'], 'status1': ['n'], 'class2': [''], 'status2': ['n'], 'class3': [''], 'status3': ['a'], 'class4': [''], 'status4': ['n'], 'class5': [''], 'status5': ['n'], 'class6': [''], 'status6': ['n'], 'submit': ['Submit']}>
         this_day = request.session['this_day']
         dt_obj = datetime.datetime.strptime(this_day, '%d-%m-%Y')
@@ -42,7 +63,7 @@ def modify(request):
         return render(request, 'modify.html',{'form1':form1})
 
     elif request.method == 'POST':
-        form1 = DateForm()
+        #form1 = DateForm()
         #default = {1:'a',2:'c',3:'',4:'b',5:'',6:'a'}
         #'date_month': ['3'], 'date_day': ['10'], 'date_year': ['2021']
         this_day = request.POST['date_day'].zfill(2)+'-'+request.POST['date_month'].zfill(2)+"-"+request.POST['date_year']
@@ -66,20 +87,7 @@ def modify(request):
         return render(request, 'modify.html',{'form1':form1,'classes':classes,'default':default,'dayname':full_dayname,'date_day':date_day,'date_month':date_month,'date_year':date_year})
         
     
-    date_obj= Attendance.objects.order_by('-date').first()
-    if date_obj:
-        date_obj = date_obj.date
-        if date_obj.strftime("%A") == "Friday":
-            n = 3
-        else:
-            n = 1
-        date_obj = date_obj + datetime.timedelta(days = n) 
-        date_str = date_obj.strftime("%Y-%m-%d")
-    else:
-        date_str = datetime.datetime.now().strftime("%Y-%m-%d")
     
-    print(date_str)
-    form1 = DateForm(initial = {'date':date_str})
     return render(request, 'modify.html',{'form1':form1})
     
 def check(request):
