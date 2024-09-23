@@ -2,9 +2,11 @@
 Django web app to enter and monitor college attendance.  
 
 Handles cases where classes are rescheduled or cancelled. Also handles cases where 
-the class was taken but the teacher forgot to take attendance.
+the class was taken but the teacher forgot to take attendance.  
 
-[College Attendance Demo.mp4](College%20Attendance%20Demo.mp4)
+A brief demo video is shown below. Refer to the instructions for the full setup and operation steps.
+
+https://github.com/user-attachments/assets/c9b31d6d-ddc8-4e68-8dfe-fa42ea34de81
 
 ## Instructions
 1. Clone the repo and install requirements:  
