@@ -10,12 +10,12 @@ the class was taken but the teacher forgot to take attendance.
 `pip install -r requirements.txt` <br><br>
 3. Set up the database by running the following commands:  
     <br>
-    `py manage.py makemigrations`  
+    `python manage.py makemigrations`  
     
-    `py manage.py migrate`
+    `python manage.py migrate`
 
 4. Now, we can initialise the time table. To run the application,  
-`python3 manage.py runserver`  
+`python manage.py runserver`  
 
 5. Navigate to '**Add courses**', and add all the courses that you need to attend, one by 
    one. Theory and practical has to be added separately (for example, OS and OS Lab, 
