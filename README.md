@@ -6,6 +6,12 @@ the class was taken but the teacher forgot to take attendance.
 
 [College Attendance Demo.mp4](College%20Attendance%20Demo.mp4)
 
+
+
+https://github.com/user-attachments/assets/c9b31d6d-ddc8-4e68-8dfe-fa42ea34de81
+
+
+
 ## Instructions
 1. Clone the repo and install requirements:  
 `pip install -r requirements.txt` <br><br>
