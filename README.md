@@ -50,5 +50,7 @@ the class was taken but the teacher forgot to take attendance.
     75% is shown in red. 
 <br><br>
 11. To check day-wise attendance as entered in database, click on 'View detailed daywise 
-attendance'. This output is also stored in a file called "out.csv" located in the root 
-    directory of this project.
+attendance'. The output is computed by running an SQLite Query on the entire database, 
+    and a file called "dump.html" (git-ignored) is generated at run-time, and stored 
+    inside the "templates" folder. This output is also stored in a file called "out.csv" 
+    located in the root directory of this project.
